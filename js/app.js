@@ -60,7 +60,7 @@ createApp({
       <todo-list v-if="view==='list'" :todos="todos" :busy="busy" @open="detailId=$event.id" @edit="openEdit" @delete="askDelete" @toggle="toggle"></todo-list>
     </template>
   </main>
-  <footer class="text-center text-muted small py-3">© 2026 Môj TODO List · Použité knižnice:
+  <footer class="text-center text-muted small py-3">© 2026 Samuel Piteľ · Použité knižnice:
     <a href="https://vuejs.org" target="_blank">Vue 3</a>, <a href="https://getbootstrap.com" target="_blank">Bootstrap 5.3.3</a>, <a href="https://fullcalendar.io" target="_blank">FullCalendar 6.1.15</a></footer>
   <todo-detail v-if="detail" :todo="detail" :busy="busy" @close="detailId=null" @edit="openEdit" @delete="askDelete" @toggle="toggle"></todo-detail>
   <todo-form v-if="form" :todo="form.todo" :preset="form.preset" :busy="busy" :error="formError" @save="save" @cancel="form=null"></todo-form>
