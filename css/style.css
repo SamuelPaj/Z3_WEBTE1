@@ -1,16 +1,83 @@
-body{background:#f4f6fb;min-height:100vh;display:flex;flex-direction:column}
-main{flex:1}
-.card-box{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.07);padding:1rem}
-.todo-item.done .t-title{text-decoration:line-through;color:#6c757d}
-.todo-item.overdue{border-left:4px solid #dc3545}
-.todo-item.done{border-left:4px solid #198754}
-.todo-item{border-left:4px solid #0d6efd;word-break:break-word}
-.fc-event.ev-done{background:#198754;border-color:#198754;opacity:.8;text-decoration:line-through}
-.fc-event.ev-overdue{background:#dc3545;border-color:#dc3545}
-.fc-event{cursor:pointer}
-.fc .fc-toolbar{flex-wrap:wrap;gap:.5rem}
-.fc .fc-toolbar-title{font-size:1.15rem}
-.modal-bg{background:rgba(0,0,0,.5)}
-.toasts{position:fixed;top:1rem;right:1rem;z-index:2000;max-width:92vw}
-.pre{white-space:pre-wrap;word-break:break-word}
-@media(max-width:576px){.fc .fc-toolbar{justify-content:center}}
+body {
+    background: #f4f6fb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.card-box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 1rem;
+}
+
+.todo-item {
+    border-left: 4px solid #0d6efd;
+    word-break: break-word;
+}
+
+.todo-item.done .t-title {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.todo-item.overdue {
+    border-left: 4px solid #dc3545;
+}
+
+.todo-item.done {
+    border-left: 4px solid #198754;
+}
+
+.fc-event {
+    cursor: pointer;
+}
+
+.fc-event.ev-done {
+    background: #198754;
+    border-color: #198754;
+    opacity: 0.8;
+    text-decoration: line-through;
+}
+
+.fc-event.ev-overdue {
+    background: #dc3545;
+    border-color: #dc3545;
+}
+
+.fc .fc-toolbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 1.15rem;
+}
+
+.modal-bg {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.toasts {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2000;
+    max-width: 92vw;
+}
+
+.pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@media (max-width: 576px) {
+    .fc .fc-toolbar {
+        justify-content: center;
+    }
+}
