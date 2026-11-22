@@ -14,6 +14,7 @@ createApp({
       catch(e){ toast(e.message,'danger'); return e.message; } finally{ loading.value=false; }
     }
     async function run(fn,okMsg){
+      if(busy.value) return false; // ochrana proti duplicitnému odoslaniu
       busy.value=true;
       try{ await fn(); await load(); toast(okMsg); return true; }
       catch(e){ toast(e.message,'danger'); formError.value=e.message; return false; }
