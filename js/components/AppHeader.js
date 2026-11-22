@@ -5,7 +5,7 @@ const AppHeader = {
   methods:{ go(v){ this.open=false; this.$emit('nav',v); }, act(e){ this.open=false; this.$emit(e); } },
   template:`<header class="app-header bg-primary shadow-sm"><div class="container">
     <nav class="navbar navbar-expand-md navbar-dark px-0">
-      <a href="#" class="navbar-brand fw-bold" @click.prevent="go('calendar')">✅ Môj TODO List</a>
+      <a href="#" class="navbar-brand fw-bold" @click.prevent="go('calendar')"><img src="favicon.svg" alt="" width="30" height="30" class="me-2 align-text-bottom">Môj TODO List</a>
       <button class="navbar-toggler" type="button" aria-label="Menu" @click="open=!open"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" :class="{show:open}">
         <ul class="navbar-nav me-auto">
