@@ -1,6 +1,6 @@
 const { createApp, ref, reactive, computed, onMounted } = Vue;
 createApp({
-  components:{ConfirmDialog,TodoDetail,TodoForm,TodoList,CalendarView},
+  components:{AppHeader,ConfirmDialog,TodoDetail,TodoForm,TodoList,CalendarView},
   setup(){
     const name=ref(localStorage.getItem('todoName')||''), nameInput=ref(''), view=ref('calendar');
     const todos=ref([]), loading=ref(false), busy=ref(false), formError=ref('');
@@ -40,15 +40,7 @@ createApp({
     <h1 class="h3">✅ Môj TODO List</h1><p class="text-muted">Zadajte svoj identifikátor (napr. priezvisko).</p>
     <form @submit.prevent="setName" class="d-flex gap-2"><input class="form-control" v-model="nameInput" placeholder="Identifikátor" autofocus><button class="btn btn-primary">Pokračovať</button></form></div></div>
   <template v-else>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary"><div class="container">
-    <span class="navbar-brand">✅ Môj TODO List</span>
-    <div class="d-flex flex-wrap gap-1 ms-auto align-items-center">
-      <button class="btn btn-sm" :class="view==='calendar'?'btn-light':'btn-outline-light'" @click="view='calendar'">Kalendár</button>
-      <button class="btn btn-sm" :class="view==='list'?'btn-light':'btn-outline-light'" @click="view='list'">Zoznam</button>
-      <button class="btn btn-sm" :class="view==='about'?'btn-light':'btn-outline-light'" @click="view='about'">O projekte</button>
-      <button class="btn btn-sm btn-success" @click="openNew()">+ Nová úloha</button>
-      <button class="btn btn-sm btn-warning" :disabled="busy" @click="askReset">Obnoviť ukážkové dáta</button>
-      <button class="btn btn-sm btn-outline-light" @click="logout">{{name}} ⎋</button></div></div></nav>
+  <app-header :view="view" :name="name" :busy="busy" @nav="view=$event" @new="openNew()" @reset="askReset" @logout="logout"></app-header>
   <main class="container py-3">
     <div v-if="loading||busy" class="text-primary mb-2"><span class="spinner-border spinner-border-sm me-2"></span>{{loading?'Načítavam údaje…':'Odosielam požiadavku…'}}</div>
     <calendar-view v-show="view==='calendar'" :todos="todos" :active="view==='calendar'" @open="detailId=$event" @create="openNew"></calendar-view>
