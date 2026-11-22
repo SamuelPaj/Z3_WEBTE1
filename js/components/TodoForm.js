@@ -24,8 +24,8 @@ const TodoForm = {
     <div class="modal-header"><h5 class="modal-title">{{todo?'Upraviť úlohu':'Nová úloha'}}</h5><button type="button" class="btn-close" @click="$emit('cancel')"></button></div>
     <div class="modal-body">
       <div v-if="error" class="alert alert-danger">{{error}} Údaje ostali zachované, skúste to znova.</div>
-      <div class="mb-3"><label class="form-label">Názov *</label><input class="form-control" :class="{'is-invalid':errs.title}" v-model="f.title" maxlength="250"><div class="invalid-feedback">{{errs.title}}</div></div>
-      <div class="mb-3"><label class="form-label">Popis</label><textarea rows="3" class="form-control" :class="{'is-invalid':errs.description}" v-model="f.description"></textarea><div class="invalid-feedback">{{errs.description}}</div></div>
+      <div class="mb-3"><label class="form-label">Názov *</label><input class="form-control" :class="{'is-invalid':errs.title}" v-model="f.title" maxlength="200"><div class="invalid-feedback">{{errs.title}}</div><div class="form-text text-end">{{f.title.length}}/200</div></div>
+      <div class="mb-3"><label class="form-label">Popis</label><textarea rows="3" class="form-control" :class="{'is-invalid':errs.description}" v-model="f.description" maxlength="1000"></textarea><div class="invalid-feedback">{{errs.description}}</div><div class="form-text text-end">{{f.description.length}}/1000</div></div>
       <div class="row"><div class="col-sm-6 mb-3"><label class="form-label">Začiatok *</label><input type="datetime-local" class="form-control" :class="{'is-invalid':errs.from}" v-model="f.from"><div class="invalid-feedback">{{errs.from}}</div></div>
       <div class="col-sm-6 mb-3"><label class="form-label">Koniec *</label><input type="datetime-local" class="form-control" :class="{'is-invalid':errs.to}" v-model="f.to"><div class="invalid-feedback">{{errs.to}}</div></div></div>
       <div v-if="todo" class="form-check"><input id="fin" type="checkbox" class="form-check-input" v-model="f.is_finished"><label for="fin" class="form-check-label">Dokončená</label></div>
