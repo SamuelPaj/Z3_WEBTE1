@@ -1,6 +1,7 @@
 # Môj TODO List (WEBTE1 Zadanie 3)
 
 Autor: Samuel Piteľ
+Link: https://webte1.fei.stuba.sk/~xpitels/Z3_Piteľ/
 
 ## O projekte
 Aplikácia „Môj TODO List“ slúži na správu osobných úloh. Používateľ môže úlohy vytvárať, upravovať, označovať ako dokončené, znovu otvárať a odstraňovať. Úlohy sa ukladajú na serveri a aplikácia s nimi pracuje cez pripravené REST API (`https://wt1zadanie.iolab.sk`), každý používateľ má vlastný zoznam podľa zadaného identifikátora.
